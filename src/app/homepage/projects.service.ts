@@ -1,6 +1,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, throwError } from 'rxjs';
+import { Observable, catchError, throwError } from 'rxjs';
 import { Project } from './models/project.model';
 
 @Injectable({
@@ -14,6 +14,12 @@ export class ProjectsService {
   getAll() {
     return this.http
       .get<Project[]>(this.URL)
+      .pipe(catchError(this.handleError));
+  }
+
+  update(product: Project): Observable<Project> {
+    return this.http
+      .put<Project>(this.URL, product)
       .pipe(catchError(this.handleError));
   }
 

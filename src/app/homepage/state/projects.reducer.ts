@@ -53,13 +53,15 @@ export const projectsReducer = createReducer(
     loading: true,
     errorMessage: '',
   })),
-  // on(ProjectsAPIActions.projectUpdatedSuccess, (state, { project }) => ({
-  //   ...state,
-  //   loading: false,
-  //   projects: state.projects.map((existingProject) =>
-  //     existingProject.id === project.id ? project : existingProject
-  //   ),
-  // })),
+  on(ProjectsAPIActions.projectUpdatedSuccess, (state, { project }) => ({
+    ...state,
+    loading: false,
+    projects: state.projects.map((existingProject) =>
+      existingProject.id === project.id ? project : existingProject
+    ),
+    currentProject:
+      state.currentProject!.id === project.id ? project : state.currentProject,
+  })),
   on(ProjectsAPIActions.projectUpdatedFail, (state, { message }) => ({
     ...state,
     loading: false,

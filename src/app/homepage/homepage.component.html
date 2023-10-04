@@ -1,7 +1,7 @@
 <div class="containers">
   <div class="d-flex flex-row">
     <div class="rounded border col-2 container">
-      <app-projet-list></app-projet-list>
+      <app-projet-list [currentProject]="currentProject"></app-projet-list>
     </div>
     <div class="rounded border col-6 container">
       <div>
@@ -13,7 +13,7 @@
       ></app-todo-list>
     </div>
     <div class="rounded border col-4 container">
-      <app-links-list></app-links-list>
+      <app-links-list [currentProject]="currentProject"></app-links-list>
     </div>
   </div>
 </div>
