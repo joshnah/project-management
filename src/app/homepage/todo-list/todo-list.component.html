@@ -1,1 +1,10 @@
-<p>todo-list works!</p>
+<div class="d-grid gap-2 d-md-flex justify-content-md-start">
+  <button class="btn btn-primary me-md-2" type="button">Sort by urgency</button>
+  <button class="btn btn-primary" type="button">Sort by progress</button>
+  <button class="btn btn-primary" type="button">Sort by deadline</button>
+</div>
+<ul class="list-group">
+  <li *ngFor="let item of project.todoList; index as i" class="list-group-item">
+    <app-todo-item [item]="item"></app-todo-item>
+  </li>
+</ul>

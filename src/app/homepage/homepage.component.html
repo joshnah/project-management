@@ -1,1 +1,20 @@
-<app-todo-list></app-todo-list>
+<div class="containers">
+  <div class="d-flex flex-row">
+    <div class="rounded border col-2 container">
+      <app-projet-list></app-projet-list>
+    </div>
+    <div class="rounded border col-6 container">
+      <div>
+        <h3 class="text-center">Todo list</h3>
+      </div>
+      <app-todo-list
+        *ngIf="currentProject"
+        [project]="currentProject"
+      ></app-todo-list>
+    </div>
+    <div class="rounded border col-4 container">
+      <app-links-list></app-links-list>
+    </div>
+  </div>
+</div>
+<!-- d-flex justify-content-center -->
