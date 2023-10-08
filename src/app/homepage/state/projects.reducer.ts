@@ -21,12 +21,16 @@ export const projectsReducer = createReducer(
     errorMessage: '',
     projects: [],
   })),
+  // for each project update
+
   on(ProjectsAPIActions.projectsLoadedSuccess, (state, { projects }) => ({
     ...state,
     loading: false,
     projects,
     // set current project
-    currentProject: projects?.length > 0 ? projects[0] : undefined,
+    currentProject:
+      projects.find((project) => project.id === state.currentProject?.id) ||
+      projects[0],
   })),
   on(ProjectsAPIActions.projectsLoadedFail, (state, { message }) => ({
     ...state,
@@ -53,14 +57,9 @@ export const projectsReducer = createReducer(
     loading: true,
     errorMessage: '',
   })),
-  on(ProjectsAPIActions.projectUpdatedSuccess, (state, { project }) => ({
+  on(ProjectsAPIActions.projectUpdatedSuccess, (state) => ({
     ...state,
     loading: false,
-    projects: state.projects.map((existingProject) =>
-      existingProject.id === project.id ? project : existingProject
-    ),
-    currentProject:
-      state.currentProject!.id === project.id ? project : state.currentProject,
   })),
   on(ProjectsAPIActions.projectUpdatedFail, (state, { message }) => ({
     ...state,

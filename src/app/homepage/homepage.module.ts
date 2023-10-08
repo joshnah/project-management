@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSliderModule } from '@angular/material/slider';
@@ -30,6 +31,7 @@ import { TodoListComponent } from './todo-list/todo-list.component';
     MatSliderModule,
     StoreModule.forFeature('projects', projectsReducer),
     EffectsModule.forFeature([ProjectEffects]),
+    AngularFireDatabaseModule,
   ],
 })
 export class HomepageModule {}

@@ -21,7 +21,7 @@ export const ProjectsAPIActions = createActionGroup({
     'Projects Loaded Fail': props<{ message: string }>(),
     'Project Added Success': props<{ project: Project }>(),
     'Project Added Fail': props<{ message: string }>(),
-    'Project Updated Success': props<{ project: Project }>(),
+    'Project Updated Success': emptyProps(),
     'Project Updated Fail': props<{ message: string }>(),
     'Project Deleted Success': props<{ id: number }>(),
     'Project Deleted Fail': props<{ message: string }>(),

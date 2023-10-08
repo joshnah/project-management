@@ -38,7 +38,7 @@ export class ProjectEffects {
       ofType(ProjectsActions.updateProject),
       exhaustMap(({ project }) =>
         this.projectsService.update(project).pipe(
-          map(() => ProjectsAPIActions.projectUpdatedSuccess({ project })),
+          map(() => ProjectsAPIActions.projectUpdatedSuccess()),
           catchError((error) =>
             of(ProjectsAPIActions.projectUpdatedFail({ message: error }))
           )

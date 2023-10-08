@@ -17,4 +17,5 @@ export interface Project {
   id: number;
   links: Link[];
   title: string;
+  key: string;
 }

@@ -11,7 +11,6 @@ import { selectCurrentProject } from './state/projects.selector';
 export class HomepageComponent {
   currentProject?: Project;
   constructor(private store: Store) {
-    this.store.subscribe((s) => console.log(s));
     this.store.select(selectCurrentProject).subscribe((currentProject) => {
       if (currentProject) {
         this.currentProject = currentProject;
